@@ -8,7 +8,7 @@ const TodoItem = ({id, name,isCon}) => (
 export default (props) => (
     <div className="Todo-List">
           <ul>
-            {props.todos.map(todo => ( <TodoItem{...todo}/>
+            {props.todos.map(todo => ( <TodoItem{...todo.id}/>
               
             ))}
             
