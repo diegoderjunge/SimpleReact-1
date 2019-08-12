@@ -1,7 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+// Tengo un error al renderear TypeError: Cannot read property 'props' of undefined
+// En la linea 18
 function App() {
   return (
     <div className="App">
@@ -15,15 +16,14 @@ function App() {
         </form>
         <div className="Todo-List">
           <ul>
-            <li>
-              <input type="checkbox" /> Create static UI
+            {this.props.todos.map(todo => (
+              <li key={todo.id}>
+              <input type="checkbox" defaultChecked={todo.isComplete}/> 
+              {todo.name}
           </li>
-            <li>
-              <input type="checkbox" /> Create initial state
-          </li>
-            <li>
-              <input type="checkbox" /> Create State to render UI
-          </li>
+            ))}
+            
+            
           </ul>
         </div>
       </div>
