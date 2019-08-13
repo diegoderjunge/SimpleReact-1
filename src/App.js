@@ -1,11 +1,17 @@
-import React from 'react';
+import React,{Component}from 'react';
+import propTypes from 'prop-types'
 import logo from './logo.svg';
 import './App.css';
 import TodoForm from './Components/TodoForm'
 import TodoList from './Components/TodoList'
 // Tengo un error al renderear TypeError: Cannot read property 'props' of undefined
 // En la linea 18
-class App extends Component() {
+export class App extends Component{
+
+  static propTypes = {
+    prop: propTypes
+  }
+
   render ( ){
     return (
       <div className="App">
@@ -22,9 +28,16 @@ class App extends Component() {
         </div>
   
       </div>
-    );
+    )
   }
   
 }
+const mapStateToProps = (state) => ({
 
-export default App;
+})
+
+const mapDispatchToProps = {
+
+}
+
+export default App
