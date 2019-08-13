@@ -7,7 +7,7 @@ import TodoForm from './Components/TodoForm'
 import TodoList from './Components/TodoList'
 // Tengo un error al renderear TypeError: Cannot read property 'props' of undefined
 // En la linea 18
-import {bindActionCreators} from 'redux'
+//import {bindActionCreators} from 'redux'
 import {updateCurrent} from './reducers/todo'
 
 export class App extends Component{
@@ -35,9 +35,8 @@ export class App extends Component{
   
 }
 
-const mapStateToProps = (state) => state
-const mapDispatchToProps = (dispatch )=> bindActionCreators({updateCurrent},dispatch)
+export default connect(
+  (state)=>state,
+  {updateCurrent})(App)
 
-const ConnectedApp = connect(mapStateToProps,mapDispatchToProps)(App)
-export default ConnectedApp
 //export default App
