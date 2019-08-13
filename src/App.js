@@ -1,4 +1,5 @@
 import React,{Component}from 'react';
+import {connect} from 'react-redux'
 import propTypes from 'prop-types'
 import logo from './logo.svg';
 import './App.css';
@@ -8,9 +9,7 @@ import TodoList from './Components/TodoList'
 // En la linea 18
 export class App extends Component{
 
-  static propTypes = {
-    prop: propTypes
-  }
+  
 
   render ( ){
     return (
@@ -28,16 +27,12 @@ export class App extends Component{
         </div>
   
       </div>
-    )
+    );
   }
   
 }
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => state
 
-})
-
-const mapDispatchToProps = {
-
-}
-
-export default App
+const ConnectedApp = connect(mapStateToProps)(App)
+export default ConnectedApp
+//export default App

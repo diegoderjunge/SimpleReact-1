@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -13,16 +14,15 @@ const actions =bindActionCreators({
 },store,dispatch)
 
 
-const render = () => {
-    const state = store.getState()
-    ReactDOM.render(<App todos={state.todos}
-    currentTodo={state.currentTodo}
-    changeCurrent={actions.todoChangeHandler}/>, 
+
+    ReactDOM.render(
+    <Provider store={store}>
+    <App 
+   
+    changeCurrent={actions.todoChangeHandler}/>
+    </Provider>,
     document.getElementById('root'));
     
-}
-render()
-store.subscribe(render)
 
 
 
@@ -31,3 +31,4 @@ store.subscribe(render)
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+</Provider>
